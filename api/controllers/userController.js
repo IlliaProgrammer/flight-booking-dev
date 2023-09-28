@@ -1,48 +1,39 @@
-import Flight from "../models/Flight.js";
+import User from "../models/User.js";
 
-export const createFlight = async (req, res, next) => {
-    const newFlight = new Flight(req.body)
-    try{
-        const savedFlight = await newFlight.save()
-        res.status(200).json(savedFlight)
-    }catch(err){
-        next(err)
-    }
-}
 
-export const updateFlight = async (req, res, next)=>{
+export const updateUser = async (req, res, next)=>{
     try{
-        const updetedFlight = await Flight.findByIdAndUpdate(req.params.id, {$set: req.body}, {new:true})
-        res.status(200).json(updetedFlight)
+        const updetedUser = await User.findByIdAndUpdate(req.params.id, {$set: req.body}, {new:true})
+        res.status(200).json(updetedUser)
     }catch(error){
         next(error)
     }
 }
 
-export const deleteFlight = async (req, res, next)=>{
+export const deleteUser = async (req, res, next)=>{
     try{
-        const deletedFlight = await Flight.findByIdAndDelete(req.params.id)
+        const deletedUser = await Flight.findByIdAndDelete(req.params.id)
         res.status(200).json("deleted")
     }catch(error){
         next(error)
     }
 }
 
-export const getFlight =  async (req, res, next)=>{
+export const getUser =  async (req, res, next)=>{
     try{
-        const flight = await Flight.findById(req.params.id)
-        res.status(200).json(flight)
+        const user = await User.findById(req.params.id)
+        res.status(200).json(user)
     }catch(error){
         res.status(500).json
     }
 }
 
 
-export const getFlights = async (req, res, next)=>{
+export const getUsers = async (req, res, next)=>{
         try{
-            const flights = await Flight.find()
-            res.status(200).json(flights)
+            const users = await User.find()
+            res.status(200).json(users)
         }catch(error){
             next(error)
         }
-    }
+}
