@@ -1,14 +1,25 @@
 import React from 'react';
+import Comments from '../../components/Comments/Comments';
+import Featured from '../../components/featured/Featured';
 import Header from '../../components/Header/Header';
 import Hero from '../../components/Hero/Hero';
+import Mail from '../../components/mail/Mail';
 import Navbar from '../../components/Navbar/Navbar';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import styles from "./Home.module.css"
 
 const Home = () => {
     return (
-        <div>
+        <div className={styles.wrapper}>
             <Navbar/>
             <Header/>
             <Hero/>
+            <SearchBar/>
+            <div className={styles.homeContainer}>
+                <Featured/>
+                <Comments/>
+                <Mail/>
+            </div>
         </div>
     );
 };
