@@ -1,6 +1,6 @@
 import express from "express"
 import { get } from "mongoose";
-import { createFlight, deleteFlight,  updateFlight, getFlight, getFlights } from "../controllers/flightsController.js";
+import { createFlight, deleteFlight,  updateFlight, getFlight, getFlights, countByCity, countByType } from "../controllers/flightsController.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
 
 
@@ -14,9 +14,13 @@ router.put("/:id", verifyAdmin, updateFlight)
 //DELETE
 router.delete("/:id", verifyAdmin, deleteFlight)
 //GET
-router.get("/:id", getFlight)
+router.get("/find/:id", getFlight)
 //GET ALL
 router.get("/", getFlights)
+//GET BY CITY
+router.get("/countByCity", countByCity)
+router.get("/countByType", countByType)
+
 
 
 
