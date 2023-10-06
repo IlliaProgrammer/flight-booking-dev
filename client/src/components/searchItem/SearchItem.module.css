@@ -1,0 +1,30 @@
+.wrapper{
+    display: flex;
+    padding: 4px 16px;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    gap: 34px;
+}
+
+.logo{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.time {
+    font-family: Nunito Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.block{
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+}

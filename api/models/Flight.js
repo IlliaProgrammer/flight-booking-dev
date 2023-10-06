@@ -25,6 +25,13 @@ const FlightSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    time:{
+        type: String,
+        required: true
+    },
+    stops:{
+        type: String,
+    },
     rating:{
         type: Number,
         min:0,

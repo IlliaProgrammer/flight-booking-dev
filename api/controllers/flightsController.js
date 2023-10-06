@@ -29,6 +29,7 @@ export const deleteFlight = async (req, res, next)=>{
 }
 
 export const getFlight =  async (req, res, next)=>{
+    
     try{
         const flight = await Flight.findById(req.params.id)
         res.status(200).json(flight)
@@ -39,8 +40,12 @@ export const getFlight =  async (req, res, next)=>{
 
 
 export const getFlights = async (req, res, next)=>{
+        const { min, max, ...others } = req.query;
         try{
-            const flights = await Flight.find()
+            const flights = await Flight.find({
+                ...others,
+                cheapestPrice: { $gt: min | 1, $lt: max || 999 },
+              }).limit(req.query.limit);
             res.status(200).json(flights)
         }catch(error){
             next(error)
@@ -51,30 +56,32 @@ export const getFlights = async (req, res, next)=>{
         const cities = req.query.cities.split(",");
         try {
           const list = await Promise.all(
-            cities.map((city) => {
-              return Flight.countDocuments({ city: city });
+            cities.map(async (city) => {
+              const count = await Flight.countDocuments({ city: city });
+              return { city: city, count: count };
             })
           );
-          console.log("im here")
+          console.log("im here");
           res.status(200).json(list);
-        } catch (err) {  
-            next(err);
+        } catch (err) {
+          next(err);
         }
       };
 
 
       export const countByType = async (req, res, next) => {
-        const cities = req.query.cities.split(",");
         try {
-          const list = await Promise.all(
-            cities.map((city) => {
-              return Flight.countDocuments({ city: city });
-            })
-          );
-          console.log("im here")
-          res.status(200).json(list);
-        } catch (err) {  
-            next(err);
+          const fCount = await Flight.countDocuments({ type: "First class(F)" });
+          const bCount = await Flight.countDocuments({ type: "Business class(B)" });
+          const wCount = await Flight.countDocuments({ type: "Econom class(W)" });
+   
+          res.status(200).json([
+            { type: "First class(F)", count: fCount },
+            { type: "Business class(B)", count: bCount },
+            { type: "Econom class(W)", count: wCount },
+
+          ]);
+        } catch (err) {
+          next(err);
         }
       };
-
