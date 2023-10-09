@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {
     faCalendarDays,
     faPerson,
@@ -11,6 +11,7 @@ import {
   import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import styles from "./SearchBar.module.css"
+import { SearchContext } from "../../context/SearchContext";
 
 const SearchBar = () => {
     const [destination, setDestination] = useState("");
@@ -39,8 +40,11 @@ const SearchBar = () => {
         };
       });
     };
+
+    const { dispatch } = useContext(SearchContext);
   
     const handleSearch = () => {
+      dispatch({ type: "NEW_SEARCH", payload: { destination, date, options } });
       navigate("/flights", { state: { destination, date, options } });
     };
   
