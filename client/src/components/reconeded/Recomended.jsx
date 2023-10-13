@@ -5,7 +5,6 @@ import styles from "./Recomended.module.css"
 
 const Recomended = () => {
     const { data, loading, error } = useFetch("/flights?featured=true");
-    console.log(data)
 
     return (
       <div className={styles.fp}> {/* Use the imported style */}
