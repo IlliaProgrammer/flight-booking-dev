@@ -3,17 +3,10 @@ import styles from './CommentCard.module.css';
 import starred from "../../assets/filled.svg"
 import unstarred from "../../assets/unfilled.svg"
 
-interface ICard {
-  imgUrl: string;
-  name: string;
-  location: string;
-  date: string;
-  rate: number;
-  text: string;
-}
 
-const CommentCard: React.FC<ICard> = (props) => {
-  function generateArrayWithOnesAndZeros(n: number) {
+
+const CommentCard= (props) => {
+  function generateArrayWithOnesAndZeros(n) {
     const onesCount = n;
     const zerosCount = 5 - n;
     const onesArray = new Array(onesCount).fill(1);

@@ -33,6 +33,23 @@ export const updateTicket  = async (req, res, next) => {
     }
   };
 
+  
+export const updateTicketAvailability  = async (req, res, next) => {
+  try {
+    await Ticket.updateOne(
+      { "ticketNumbers._id": req.params.id },
+      {
+        $push: {
+          "ticketNumbers.$.unavailableDates": req.body.dates
+        },
+      }
+    );
+    res.status(200).json("Ticket status has been updated.");
+  } catch (err) {
+    next(err);
+  }
+};
+
   export const deleteTicket = async (req, res, next) => {
     const   flightId = req.params.flightid;
     try {

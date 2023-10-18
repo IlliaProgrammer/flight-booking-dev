@@ -1,4 +1,5 @@
 import Flight from "../models/Flight.js";
+import Ticket from "../models/Ticket.js";
 
 export const createFlight = async (req, res, next) => {
     const newFlight = new Flight(req.body)
@@ -81,6 +82,20 @@ export const getFlights = async (req, res, next)=>{
             { type: "Econom class(W)", count: wCount },
 
           ]);
+        } catch (err) {
+          next(err);
+        }
+      };
+
+      export const getFlightTicket = async (req, res, next) => {
+        try {
+          const flight = await Flight.findById(req.params.id);
+          const list = await Promise.all(
+            flight.tickets.map((ticket) => {
+              return Ticket.findById(ticket);
+            })
+          );
+          res.status(200).json(list)
         } catch (err) {
           next(err);
         }

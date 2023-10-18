@@ -21,8 +21,6 @@ const Home = () => {
                 <Featured/>
                 <h1 className={styles.homeTitle}>Browse most popular cities</h1>
                 <CityList/>
-                <h1 className={styles.homeTitle}>Recent flights</h1>
-                <Recomended/>
                 <Comments/>
                 <Mail/>
             </div>

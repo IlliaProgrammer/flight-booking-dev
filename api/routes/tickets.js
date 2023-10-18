@@ -1,5 +1,5 @@
 import express from "express";
-import { createTicket, deleteTicket, getTicket, updateTicket, getTickets } from "../controllers/ticketsController.js";
+import { createTicket, deleteTicket, getTicket, updateTicket, getTickets, updateTicketAvailability } from "../controllers/ticketsController.js";
 
 import { verifyAdmin } from "../utils/verifyToken.js";
 
@@ -9,6 +9,7 @@ router.post("/:flightid", verifyAdmin, createTicket);
 
 //UPDATE
 router.put("/:id", verifyAdmin, updateTicket);
+router.put("/availability/:id", updateTicketAvailability);
 //DELETE
 router.delete("/:id/:flightid", verifyAdmin, deleteTicket);
 //GET
