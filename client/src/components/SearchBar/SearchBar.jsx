@@ -50,7 +50,7 @@ const SearchBar = () => {
   
 
     return (
-        <div className={styles.headerSearch}>
+        <aside className={styles.headerSearch}>
           <div className={styles.headerSearchItem}>
             <FontAwesomeIcon icon={faPlane} className={styles.headerIcon} />
             <input
@@ -159,7 +159,7 @@ const SearchBar = () => {
               Search
             </button>
           </div>
-        </div>
+        </aside>
       );
     };
 

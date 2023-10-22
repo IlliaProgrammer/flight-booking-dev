@@ -1,3 +1,76 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,700,900);
+
 .wrapper {
-    height: 50vh;
+    height: 100vh;
+    font-family: 'Lato', sans-serif; 
+    display: flex;
+    flex-direction: column;
+
+}
+
+.container{
+    position: relative;
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+}
+
+.textcontainer{
+    margin-top: 40px;
+    width: 500px;
+    transform: translate(-15%, 0);
+}
+
+.hot{
+    color: aquamarine;
+    border: 1px solid aquamarine;
+    border-radius: 5px;
+    padding: 3px 5px;
+    font-weight: 600;
+    width: fit-content;
+    margin-bottom: 5px;
+}
+
+.name{
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.cities {
+    margin-top: 6px;
+    margin-left: 10px;
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -15%;
+    background-color: white;
+    padding: 15px;
+    right: 25%;
+}
+
+.price{
+    font-size: 30px;
+    display: flex;
+    justify-content: end;
+}
+
+.infos{
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+.subButton{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.check{
+    color: #3586ff;
 }

@@ -50,7 +50,7 @@ const Login = () => {
             We are <span className={styles.nuva}>SkyWings.Express|</span>
           </h4>
           <p className={styles.description}>
-            Welcome back! Log in to your account to view today's clients:
+            Welcome back! Log in to your account to view today's flights:
           </p>
           <div className={styles.floatingLabel}>
             <input

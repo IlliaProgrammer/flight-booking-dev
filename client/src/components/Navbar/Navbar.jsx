@@ -19,7 +19,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className={styles.navbar}>
+    <nav className={styles.navbar}>
       <div className={styles.navContainer}>
         <Link to={"/"} className={styles.mainNav__logo}>
           <span>
@@ -48,7 +48,7 @@ const Navbar = () => {
           </div>
         )}
       </div>
-    </div>
+    </nav>
   );
 };
 

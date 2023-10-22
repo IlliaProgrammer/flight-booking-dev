@@ -1,0 +1,64 @@
+
+.slider_container {
+    max-width: 1300px;
+    height: 600px;
+    width: 100%;
+    margin: auto;
+    position: relative;
+    margin-top: 60px;
+  }
+  
+  .slide {
+    position: relative; 
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    padding-bottom: 4rem; 
+    width: 100%; 
+    max-width: 1300px;
+    height: 600px;
+  }
+  
+  .nav_buttons {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    font-size: 2.25rem;
+    line-height: 2.5rem; 
+    font-weight: 700; 
+    color: #ffffff; 
+  }
+  
+  .left {
+    left: 5%;
+    position: absolute; 
+    top: 50%; 
+    font-size: 2.25rem;
+    line-height: 2.5rem; 
+    font-weight: 700; 
+    color: #ffffff; 
+  }
+  
+  .right {
+    right: 5%;
+    position: absolute; 
+    top: 50%; 
+    font-size: 2.25rem;
+    line-height: 2.5rem; 
+    font-weight: 700; 
+    color: #ffffff; 
+  }
+  
+  
+  .dot_container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    color: white;
+}
+  
+  .dots {
+    font-size: 14px;
+    cursor: pointer;
+  }
