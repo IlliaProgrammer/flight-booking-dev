@@ -11,6 +11,7 @@ const Header = () => {
             <div className={styles.mainNav__links}>
                 <Link to={"/about"} className={styles.mainNav__link}>About</Link>
                 <Link to={"/"} className={styles.mainNav__link}>Booking</Link>
+                <Link to={"/team"} className={styles.mainNav__link}>Our team</Link>
             </div>
            
             </nav>

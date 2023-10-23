@@ -86,3 +86,7 @@
     position: absolute;
     top: 180px;
   }
+
+  .dateString{
+    font-size: 12px;
+  }

@@ -5,6 +5,8 @@ import Flight from "./pages/flight/Flight";
 import Home from "./pages/home/Home";
 import List from "./pages/list/List";
 import Login from "./pages/login/Login";
+import AboutPage from "./pages/AboutPage/AboutPage";
+import Team from "./pages/team/Team";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path="/flights" element={<List/>}/>
         <Route path="/flights/:id" element={<Flight/>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/about" element={<AboutPage/>}/>
+        <Route path="/team" element={<Team/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>

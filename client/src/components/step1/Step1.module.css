@@ -1,0 +1,145 @@
+.rContainer {
+    width: 800px;
+    background-color: white;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .rClose {
+    position: absolute;
+    top: 5px;
+    right:  5px;
+    cursor: pointer;
+  }
+
+
+  .rItem {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 20px;
+    position: relative; 
+    z-index: 3;
+  }
+  
+  .rInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .rTitle {
+    display: flex;
+    gap: 18px;
+    color: var(--grey-600, #6E7491);
+    font-family: Nunito Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 20px;
+  }
+
+  .blueBox{
+    display: flex;
+    padding: 2px 6px;
+    align-items: center;
+    gap: 10px;
+    background-color: #0071c2;
+    width: fit-content;
+    color: white;
+    border-radius: 4px;
+    font-family: Nunito Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px;
+  }
+  
+  .rDesc {
+    font-family: Nunito Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 250px;
+  }
+
+  .rPrice {
+    margin-top: 20px;
+    font-weight: 500;
+  }
+
+  .rSelectTickets {
+    margin-left: 270px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    font-size: 8px;
+    color: gray;
+  }
+
+  .ticket{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rButton {
+    border: none;
+    padding: 10px 20px;
+    background-color: #0071c2;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .seatswrapper{
+    position: relative;
+  }
+  
+  .background{
+    position: absolute;
+    z-index: 1;
+    left: 35%;
+  }
+
+  .backgroundI{
+    z-index: 2;
+    width: 240px;
+    height: 440px;
+    position: absolute;
+    left: 67%;
+    top: 10%;
+    background-color: white;
+  }
+
+  input[type=checkbox][disabled]{
+    --form-control-color: var(--form-control-disabled);
+
+    color: var(--form-control-disabled);
+    cursor: not-allowed;
+  }
+
+  .itemList{
+    list-style: none;
+    margin-top: 10px;
+    font-family: Nunito Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .circle{
+    font-size: 6px;
+    padding-bottom: 2px;
+    color: #605DEC;
+  }
+
+  .check{
+    color: #5CD6C0;
+  }

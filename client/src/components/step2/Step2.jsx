@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './PaymentCard.module.css';
+import styles from './Step2.module.css';
 
-const PaymentCard = () => {
+const Step2 = () => {
   return (
     <div className={styles.container}>
       <div className={styles.card__container}>
@@ -90,4 +90,4 @@ const PaymentCard = () => {
   );
 };
 
-export default PaymentCard;
+export default Step2;
