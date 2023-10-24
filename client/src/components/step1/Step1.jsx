@@ -9,8 +9,9 @@ import PaymentCard from '../step2/Step2';
 import flight_image from "../../assets/plane_seats.png"
 import {BsFillCircleFill, BsCheckLg} from "react-icons/bs"
 
-const Step1 = ({setOpen, flightId}) => {
+const Step1 = ({flightId, onNext }) => {
     const [selectedTickets, setSelectedTickets] = useState([]);
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
     const { date } = useContext(SearchContext);
 
@@ -54,8 +55,6 @@ const Step1 = ({setOpen, flightId}) => {
         );
       };
 
-      const navigate = useNavigate();
-
       const handleClick = async () => {
         try {
           await Promise.all(
@@ -63,11 +62,11 @@ const Step1 = ({setOpen, flightId}) => {
               const res = axios.put(`/tickets/availability/${flightId}`, {
                 dates: alldates,
               });
+  
               return res.data;
             })
           );
-        //   setOpen(false);
-        //   navigate("/");
+          onNext();
         } catch (err) {}
       };
 
@@ -170,7 +169,7 @@ const Step1 = ({setOpen, flightId}) => {
                     </div>
                 ))}
                 </div>
-                <button className={styles.rButton} onClick={handleClick}>Reserve Now!</button>
+                <button className={styles.rButton} onClick={handleClick}  disabled={isButtonDisabled}>Reserve Now!</button>
             </div>
 
         

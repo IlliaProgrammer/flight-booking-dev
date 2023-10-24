@@ -1,6 +1,8 @@
 .stepper{
   padding: 5px;
-    background-color: white;
+  background-color: white;
+  height: 750px;
+  width: 840px;
 }
 
 .steps_container {

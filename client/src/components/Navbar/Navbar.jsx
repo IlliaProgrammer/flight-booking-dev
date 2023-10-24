@@ -41,7 +41,9 @@ const Navbar = () => {
           </div>
         ) : (
           <div className={styles.navItems}>
-            <button className={styles.navButton}>Register</button>
+            <Link to={"/register"}>
+              <button className={styles.navButton}>Register</button>
+            </Link>
             <Link to={"/login"}>
               <button className={styles.navButton}>Login</button>
             </Link>

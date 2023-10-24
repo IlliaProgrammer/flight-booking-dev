@@ -1,7 +1,14 @@
 import React from 'react';
 import styles from './Step2.module.css';
+import { useNavigate } from "react-router-dom";
 
-const Step2 = () => {
+const Step2 = ({onNext}) => {
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    onNext();
+  }
   return (
     <div className={styles.container}>
       <div className={styles.card__container}>
@@ -86,6 +93,7 @@ const Step2 = () => {
           </div>
         </div>
       </div>
+      <button className={styles.rButton} onClick={handleClick}  >Pay</button>
     </div>
   );
 };
