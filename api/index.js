@@ -5,7 +5,9 @@ import authRoute from "./routes/auth.js"
 import usersRoute from "./routes/users.js"
 import flightsRoute from "./routes/flights.js"
 import ticketsRoute from "./routes/tickets.js"
+import mailRoute from "./routes/mail.js"
 import cookieParser from "cookie-parser"
+import cors from "cors"
 
 const app = express()
 dotenv.config()
@@ -31,11 +33,17 @@ mongoose.connection.on("connected", ()=>{
 //middlewares
 app.use(cookieParser())
 app.use(express.json())
-
 app.use("/api/auth", authRoute)
 app.use("/api/users", usersRoute)
 app.use("/api/flights", flightsRoute)
 app.use("/api/tickets", ticketsRoute)
+app.use("/api/email", mailRoute)
+
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+//     next();
+// });
 
 app.use((err, req, res, next)=>{
     const errorStatus = err.status || 500

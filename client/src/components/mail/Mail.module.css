@@ -29,3 +29,22 @@
     cursor: pointer;
     padding: 0px 10px;
   }
+
+  @media (max-width: 768px) {
+    .mail {
+      width: 85%; /* Adjust width for smaller screens */
+      padding: 30px; /* Reduce padding for smaller screens */
+    }
+  
+    .mailInputContainer > input {
+      width: 100%; /* Full width for the input field on smaller screens */
+      margin-right: 0; /* Remove margin for better fit in smaller space */
+    }
+  
+    .mailInputContainer > button {
+      width: 100%; /* Full width for the button on smaller screens */
+      margin-right: 0; /* Remove margin for better fit in smaller space */
+      text-align: center; /* Center button text for better presentation */
+      margin-top: 10px; /* Add margin to separate button from input field */
+    }
+  }

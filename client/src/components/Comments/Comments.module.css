@@ -31,3 +31,18 @@
     gap: 60px;
     align-self: stretch;
 }
+
+@media (max-width: 768px) {
+    .comments {
+      padding: 24px; /* Adjust padding for smaller screens */
+    }
+  
+    .title {
+      font-size: 18px; /* Decrease title font size for smaller screens */
+    }
+  
+    .comments__posts {
+      flex-direction: column; /* Stack posts vertically on smaller screens */
+      gap: 20px; /* Reduce gap between posts for smaller screens */
+    }
+  }

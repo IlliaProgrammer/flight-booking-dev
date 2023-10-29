@@ -13,28 +13,28 @@ const CityList = () => {
         "https://lp-cms-production.imgix.net/2023-02/GettyImages-686005142.jpeg",
       ];
 
-  return (
-    <div className={styles.pList}> 
-      {loading ? (
-        "loading"
-      ) : (
-        <>
-          {data &&
-            images.map((img, i) => (
-              <div className={styles.pListItem} key={i}>
-                <img src={img} alt="" className={styles.pListImg} /> 
-                <div className={styles.pListTitles}> 
-                  <h1>{data[i]?.type}</h1>
-                  <h2>
-                  {data[i]?.city} - {data[i]?.count} 
-                  </h2>
-                </div>
-              </div>
-            ))}
-        </>
-      )}
-    </div>
-  );
+      return (
+        <section className={styles.pList}>
+          {loading ? (
+            'Loading...'
+          ) : (
+            <>
+              {data &&
+                images.map((img, i) => (
+                  <article className={styles.pListItem} key={i}>
+                    <img src={img} alt={`Image ${i}`} className={styles.pListImg} />
+                    <div className={styles.pListTitles}>
+                      <h2>{data[i]?.type}</h2>
+                      <p>
+                        {data[i]?.city} - {data[i]?.count}
+                      </p>
+                    </div>
+                  </article>
+                ))}
+            </>
+          )}
+        </section>
+      );
 };
 
 export default CityList;

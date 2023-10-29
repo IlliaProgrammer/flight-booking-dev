@@ -6,7 +6,6 @@ import Header from '../../components/Header/Header';
 import Hero from '../../components/Hero/Hero';
 import Mail from '../../components/mail/Mail';
 import Navbar from '../../components/Navbar/Navbar';
-import Recomended from '../../components/reconeded/Recomended';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import styles from "./Home.module.css"
 
