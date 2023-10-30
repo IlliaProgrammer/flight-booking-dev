@@ -46,3 +46,48 @@
  .mainNav__link:hover {
     transform: translateY(-5px);
   }
+
+.burger{
+    display: none;
+}
+
+@media(max-width: 576px){
+    .mainNav__links{
+        position: fixed;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        height: 100vh;
+        background-color: white;
+        border:2px solid #3586ff ;
+        width: 200px;
+        top: 0;
+        padding-top: 50px;
+        left: -210px;
+        transition: transform 0.3s linear; 
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .mainNav__links.active{
+        transform: translateX(100%);
+    }
+
+    .mainNav__link {
+        color: #3586ff;
+    }
+
+    .burger{
+        display: block;
+        height: 40px;
+        width: 40px;
+        background-color: transparent;
+        margin-left: auto;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+        color: white;
+        font-size: 20px;
+    }
+}

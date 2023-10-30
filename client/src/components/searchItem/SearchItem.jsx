@@ -25,7 +25,7 @@ const SearchItem = ({item}) => {
                 </div>
                 <div className={styles.second}>
                     <div className={styles.stops}><p>Depature</p>{item.stop ? <p>1 Stop</p> : <p>No stops</p>}<p>Arrival</p></div>
-                    <div><BiSolidRightArrow/><AiOutlineDash/><AiOutlineDash/><AiOutlineDash/><AiOutlineDash/><AiOutlineDash/><AiOutlineDash/><AiOutlineDash/><AiOutlineDash/><AiOutlineDash/><AiOutlineDash/><BsCircle/><AiOutlineDash/><AiOutlineDash/><AiOutlineDash/><AiOutlineDash/><AiOutlineDash/><AiOutlineDash/><AiOutlineDash/><AiOutlineDash/><AiOutlineDash/><AiOutlineDash/><BiSolidRightArrow/></div>
+                    <div><BiSolidRightArrow/><AiOutlineDash className={styles.dots}/><AiOutlineDash className={styles.dots}/><AiOutlineDash className={styles.dots}/><AiOutlineDash className={styles.dots}/><AiOutlineDash className={styles.dots}/><AiOutlineDash/><AiOutlineDash/><AiOutlineDash /><AiOutlineDash/><AiOutlineDash/><BsCircle/><AiOutlineDash className={styles.dots}/><AiOutlineDash className={styles.dots}/><AiOutlineDash className={styles.dots}/><AiOutlineDash className={styles.dots}/><AiOutlineDash className={styles.dots}/><AiOutlineDash /><AiOutlineDash/><AiOutlineDash/><AiOutlineDash/><AiOutlineDash/><BiSolidRightArrow/></div>
                     <div className={styles.bottomRow}>{item.stop}</div>
                 </div>
                 <div className={styles.first}>

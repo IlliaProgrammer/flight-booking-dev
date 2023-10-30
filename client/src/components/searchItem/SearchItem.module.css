@@ -69,3 +69,43 @@
 .bottomRow{
     margin-left: 150px;
 }
+
+@media (max-width: 768px) {
+    .top {
+        padding: 7px 3%;
+    }
+
+
+    .wrapper{
+        width: 96vw;
+        margin-left: 1vw;
+    }
+
+    .icon {
+        font-size: 4vw;
+    }
+
+    .bottom {
+        padding: 1%;
+    }
+
+    .dots{
+        display: none;
+    }
+
+    .stops{
+        gap: 30px
+    }
+
+    .first:nth-child(1){
+        margin-left: 16px;
+    }
+
+    .first:nth-child(3){
+        margin-left: 20px;
+    }
+
+    .bottomRow {
+        margin-left: 35%; /* Adjusted for smaller screens */
+    }
+}

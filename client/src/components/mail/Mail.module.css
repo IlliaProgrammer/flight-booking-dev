@@ -32,7 +32,7 @@
 
   @media (max-width: 768px) {
     .mail {
-      width: 85%; /* Adjust width for smaller screens */
+      width: 84%; /* Adjust width for smaller screens */
       padding: 30px; /* Reduce padding for smaller screens */
     }
   

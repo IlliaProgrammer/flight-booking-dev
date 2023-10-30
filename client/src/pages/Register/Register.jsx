@@ -26,9 +26,10 @@ const Register = () => {
     e.preventDefault();
     try {
           const res = axios.post(`/auth/register`, credentials)
+          navigate("/login")
           console.log(res.data)
           return res.data;
-          navigate("/login")
+          
     } catch (err) {
       console.log(err);
     }

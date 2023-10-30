@@ -90,3 +90,26 @@
   .dateString{
     font-size: 12px;
   }
+
+  @media (max-width: 768px) {
+    .listWrapper {
+      flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+  
+    .listSearch {
+      width: 90%;
+      margin-left: 10px; /* Full width for smaller screens */
+      position: relative; /* Remove sticky positioning */
+      top: 0;
+      margin-bottom: 0; /* Remove margin at the bottom */
+    }
+  
+    .lsItem>span {
+      padding: 8px; /* Adjust padding for smaller screens */
+    }
+  
+    .lsItem>input,
+    .lsItem>span {
+      height: 40px; /* Increase height for better touch input */
+    }
+  }

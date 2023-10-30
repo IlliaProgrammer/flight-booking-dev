@@ -9,6 +9,7 @@ const AboutPage = () => {
         <>
             <Navbar/>
             <Header/>
+            
             <div className={styles.wrapper}>
             
             <div className={styles.top}>

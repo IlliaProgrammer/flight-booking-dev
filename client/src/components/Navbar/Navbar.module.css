@@ -39,3 +39,13 @@
     color: white;
     font-family: Gabarito;
  }
+
+ @media(max-width: 720px){
+  .mainNav__logo {
+    margin-left: 6px;
+  }
+
+  .navButton{
+    margin-right: 6px;
+  }
+ }
