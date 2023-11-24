@@ -39,11 +39,11 @@ app.use("/api/flights", flightsRoute)
 app.use("/api/tickets", ticketsRoute)
 app.use("/api/email", mailRoute)
 
-// app.use((req, res, next) => {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-//     next();
-// });
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+    next();
+});
 
 app.use((err, req, res, next)=>{
     const errorStatus = err.status || 500
