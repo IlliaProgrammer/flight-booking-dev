@@ -18,11 +18,9 @@ const Flight = () => {
     const id = location.pathname.split("/")[2]
     const {data, loading, error} = useFetch(`/flights/find/${id}`)
     const { date, options } = useContext(SearchContext);
-    console.log(date)
     const formattedEndDate = new Date(date[0].endDate).toLocaleDateString();
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
-    console.log(data)
     const handleClick = () => {
         if (user) {
           setOpenModal(true);

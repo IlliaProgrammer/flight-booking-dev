@@ -5,7 +5,7 @@ const Hero = () => {
     return (
         <header className={styles.mainHeading}>
                 <div className={styles.mainHeading__content}>
-            <article className={styles.mainHeading__text}>
+                <article className={styles.mainHeading__text}>
                 <p className={styles.mainHeading__preTitle}>flights</p>
                 <h2 className={styles.mainHeading__title}>under the sky</h2>
                 <p className={styles.mainHeading__description}>

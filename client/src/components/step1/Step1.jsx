@@ -13,9 +13,7 @@ const Step1 = ({flightId, onNext }) => {
     const [selectedTickets, setSelectedTickets] = useState([]);
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
-    const { date } = useContext(SearchContext);
-
-   
+    const { date } = useContext(SearchContext);    
 
     const getDatesInRange = (startDate, endDate) => {
       const start = new Date(startDate);
@@ -40,7 +38,6 @@ const Step1 = ({flightId, onNext }) => {
       const isFound = ticketNumber.unavailableDates.some((date) =>
         alldates.includes(new Date(date).getTime())
       );
-      console.log(isFound)
       return !isFound;
     };
 
@@ -66,7 +63,8 @@ const Step1 = ({flightId, onNext }) => {
               return res.data;
             })
           );
-          onNext();
+          const step1Data = [...selectedTickets]
+          onNext(step1Data);
         } catch (err) {}
       };
 

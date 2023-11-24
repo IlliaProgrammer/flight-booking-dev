@@ -89,13 +89,18 @@
     .headerSearch {
       padding: 10px;
       margin-top: 100px;
-      max-width: 90vw;
+      width: 90vw;
+      display: flex;
+      flex-direction: column;
+      padding-top: 10px;
     }
   
     .headerSearchItem {
-      flex-direction: column;
+      flex-direction: row;
       align-items: stretch;
-      gap: 10px;
+      width: 90%;
+      margin-bottom: 20px;
+      
     }
 
   
@@ -109,6 +114,5 @@
   
     .headerBtn {
       width: 100%;
-      margin-top: 10px;
     }
   }

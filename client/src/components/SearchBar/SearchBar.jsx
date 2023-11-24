@@ -12,6 +12,8 @@ import {
 import "react-date-range/dist/theme/default.css"; // theme css file
 import styles from "./SearchBar.module.css"
 import { SearchContext } from "../../context/SearchContext";
+import { useClickOutside } from '../../hooks/useClickOtside';
+import { useDebounce } from '../../hooks/useDebounce';
 
 const SearchBar = () => {
     const [destination, setDestination] = useState("");
@@ -29,7 +31,17 @@ const SearchBar = () => {
       children: 0,
       ticket: 1,
     });
-  
+
+    let dateNode = useClickOutside(() => {
+      setOpenDate(false);
+    });
+
+    let optionNode = useClickOutside(() => {
+      setOpenOptions(false);
+    });
+
+    
+
     const navigate = useNavigate();
   
     const handleOption = (name, operation) => {
@@ -60,7 +72,7 @@ const SearchBar = () => {
               onChange={(e) => setDestination(e.target.value)}
             />
           </div>
-          <div className={styles.headerSearchItem}>
+          <div  ref={dateNode} className={styles.headerSearchItem}>
             <FontAwesomeIcon icon={faCalendarDays} className={styles.headerIcon} />
             <span
               onClick={() => setOpenDate(!openDate)}
@@ -80,7 +92,7 @@ const SearchBar = () => {
               />
             )}
           </div>
-          <div className={styles.headerSearchItem}>
+          <div ref={optionNode} className={styles.headerSearchItem}>
             <FontAwesomeIcon icon={faPerson} className={styles.headerIcon} />
             <span
               onClick={() => setOpenOptions(!openOptions)}

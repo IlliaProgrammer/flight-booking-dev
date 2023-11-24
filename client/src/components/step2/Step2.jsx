@@ -1,10 +1,84 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import styles from './Step2.module.css';
-import { useNavigate } from "react-router-dom";
+
+const useValidation = (value, validations) => {
+  const [isEmpty, setEmpty] = useState(true)
+  const [minLengthError, setMinLengthError] = useState(false)
+  const [isCardError, setIsCardError] = useState(false)
+  const [isNameError, setIsNameError] = useState(false)
+  const [formValidate, setFormValidate] = useState(false)
+
+  useEffect(()=>{
+    for (const validation in validations) {
+      switch(validation){
+        case "minLength":
+          value.length < validations[validation] ? setMinLengthError(true) : setMinLengthError(false)
+          break;
+        case "isEmpty":
+          value ? setEmpty(false) : setEmpty(true)
+          break    
+        case "isCard":
+          const cardNumberPattern = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
+          cardNumberPattern.test(value ) ? setIsCardError(false) : setIsCardError(true)
+          break   
+        case "isName":
+          const name = /^[A-Za-z]+(?: [A-Za-z]+)?$/;
+          name.test(value ) ? setIsNameError(false) : setIsNameError(true)
+          break 
+        default:
+          setEmpty(false);
+          setMinLengthError(true);
+      }
+
+    }
+  },[value])
+
+  useEffect(()=>{
+    if(isEmpty || isCardError || minLengthError || isNameError){
+      setFormValidate(false)
+    } else setFormValidate(true)
+  },[isEmpty, isCardError, minLengthError, isNameError])
+
+  return {
+    isEmpty,
+    minLengthError,
+    isCardError,
+    isNameError,
+    formValidate
+  }
+}
+
+
+const useInput = (initialState, validations) => {
+  const [value, setValue] = useState(initialState)
+  const [isDirty, setDirty] = useState(false)
+  const valid = useValidation(value, validations)
+
+
+  const onChange = (e) => {
+    setValue(e.target.value)
+  }
+
+  const onBlur = (e) => {
+    setDirty(true)
+  }
+ 
+  return {
+    value,
+    onChange,
+    onBlur,
+    isDirty,
+    ...valid    
+  }
+
+}
 
 const Step2 = ({onNext}) => {
+  const name = useInput("", {isEmpty: true, minLength: 3, isName: true})
+  const card = useInput("", {isEmpty: true, minLength: 3, isCard: true})
 
-  const navigate = useNavigate();
 
   const handleClick = () => {
     onNext();
@@ -15,7 +89,7 @@ const Step2 = ({onNext}) => {
         <div className={styles.card}>
           <div className={`${styles.row} ${styles.paypal}`}>
             <div className={styles.left}>
-              <input id="pp" type="radio" name="payment" />
+              <input id="pp" type="radio" name="payment" checked="true" />
               <div className={styles.radio}></div>
               <label htmlFor="pp">Paypal</label>
             </div>
@@ -39,13 +113,13 @@ const Step2 = ({onNext}) => {
           <div className={`${styles.row} ${styles.cardholder}`}>
             <div className={styles.info}>
               <label htmlFor="cardholdername">Name</label>
-              <input placeholder="e.g. Richard Bovell" id="cardholdername" type="text" />
+              <input onChange={e => name.onChange(e)} onBlur={e => name.onBlur(e)} placeholder="e.g. Richard Bovell" id="cardholdername" type="text" value={name.value} required="true"/>
             </div>
           </div>
           <div className={`${styles.row} ${styles.number}`}>
             <div className={styles.info}>
               <label htmlFor="cardnumber">Card number</label>
-              <input id="cardnumber" type="text" pattern="[0-9]{16,19}" maxLength="19" placeholder="8888-8888-8888-8888"/>
+              <input id="cardnumber" type="text"  placeholder="8888-8888-8888-8888" value={card.value} required="true" onChange={e => card.onChange(e)} onBlur={e => card.onBlur(e)} />
             </div>
           </div>
           <div className={`${styles.row} ${styles.details}`}>
@@ -63,7 +137,7 @@ const Step2 = ({onNext}) => {
                 <option value="8">08</option>
                 <option value="9">10</option>
                 <option value="11">11</option>
-                <option value="12">12</option>
+                <option value="12" selected>12</option>
               </select>
               <span>/</span>
               <select id="expiry-date">
@@ -75,7 +149,7 @@ const Step2 = ({onNext}) => {
                 <option value="2020">2020</option>
                 <option value="2021">2021</option>
                 <option value="2022">2022</option>
-                <option value="2023">2023</option>
+                <option value="2023" selected>2023</option>
                 <option value="2024">2024</option>
                 <option value="2025">2025</option>
                 <option value="2026">2026</option>
@@ -87,13 +161,17 @@ const Step2 = ({onNext}) => {
             </div>
             <div className={styles.right}>
               <label htmlFor="cvv">CVC/CVV</label>
-              <input type="text" maxLength="4" placeholder="123"/>
+              <input type="text" maxLength="3" placeholder="123" defaultValue={123}/>
               <span data-balloon-length="medium" data-balloon="The 3 or 4-digit number on the back of your card." data-balloon-pos="up">i</span>
             </div>
           </div>
         </div>
       </div>
-      <button className={styles.rButton} onClick={handleClick}  >Pay</button>
+      <button className={styles.rButton} disabled={!name.formValidate || !card.formValidate} onClick={handleClick} type="submit" >Pay</button>
+      {(name.isDirty && name.isEmpty) && <div>Name can't be empty</div>}
+      {(name.isDirty && card.isNameError) && <div>Name doesnt suit</div>}
+      {(card.isDirty && card.isEmpty) && <div>Card can't be empty</div>}
+      {(card.isDirty && card.isCardError) && <div>Card doesnt suit</div>}
     </div>
   );
 };
