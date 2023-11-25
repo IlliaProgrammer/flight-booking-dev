@@ -38,6 +38,9 @@ app.use("/api/users", usersRoute)
 app.use("/api/flights", flightsRoute)
 app.use("/api/tickets", ticketsRoute)
 app.use("/api/email", mailRoute)
+app.use("/api/", (req,res)=>{
+    res.send("hello world")
+})
 app.use(cors())
 
 app.use((req, res, next) => {
