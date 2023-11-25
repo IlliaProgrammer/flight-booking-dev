@@ -94,4 +94,8 @@
     .contact-form-container {
       width: 100%;
     }
+
+    .submit {
+      width: 94%;
+    }
   }

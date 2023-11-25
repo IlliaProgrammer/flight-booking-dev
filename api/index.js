@@ -10,8 +10,11 @@ import cookieParser from "cookie-parser"
 import cors from "cors"
 
 const app = express()
-dotenv.config()
 
+
+dotenv.config()
+app.use(cors())
+app.options("*", cors());
 
 const connect = async()=>{
     try {
@@ -22,13 +25,14 @@ const connect = async()=>{
     }
 }
 
-mongoose.connection.on("disconnected", ()=>{
-    console.log("mongo disconnected")
-})
+mongoose.connection.on("connected", () => {
+    console.log("Mongo connected at", new Date());
+});
 
-mongoose.connection.on("connected", ()=>{
-    console.log("mongo connected")
-})
+mongoose.connection.on("disconnected", () => {
+    console.log("Mongo disconnected at", new Date());
+});
+
 
 //middlewares
 app.use((req, res, next) => {
@@ -36,8 +40,6 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
     next();
 });
-
-app.use(cors())
 app.use(cookieParser())
 app.use(express.json())
 app.use("/api/auth", authRoute)

@@ -20,7 +20,7 @@ const List = () => {
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
 
-  const {data, loading, error} = useFetch(`/flights?city=${destination}&min=${min || 0 }&max=${max || 999}`)
+  const {data, loading, error} = useFetch(`${process.env.REACT_APP_API_URL}/flights?city=${destination}&min=${min || 0 }&max=${max || 999}`)
   
   console.log(date)
 

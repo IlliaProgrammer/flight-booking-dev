@@ -14,12 +14,12 @@ const Mail = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/email/send', credentials, {
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/email/send`, credentials, {
         withCredentials: true,
       });
       console.log(res.data); // You can handle the response data here
     } catch (err) {
-      console.log(err);
+      console.log(err.res);
     }
   };
 

@@ -16,7 +16,7 @@ const Flight = () => {
     const location = useLocation()
     const [openModal, setOpenModal] = useState(false);
     const id = location.pathname.split("/")[2]
-    const {data, loading, error} = useFetch(`/flights/find/${id}`)
+    const {data, loading, error} = useFetch(`${process.env.REACT_APP_API_URL}/flights/find/${id}`)
     const { date, options } = useContext(SearchContext);
     const formattedEndDate = new Date(date[0].endDate).toLocaleDateString();
     const { user } = useContext(AuthContext);

@@ -1,6 +1,5 @@
 import express from "express"
-import { get } from "mongoose";
- import { send, contact } from "../controllers/mailController.js";
+import { send, contact } from "../controllers/mailController.js";
 
 const router = express.Router();
 

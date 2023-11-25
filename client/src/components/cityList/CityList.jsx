@@ -3,7 +3,7 @@ import useFetch from "../../hooks/useFetch";
 import styles from "./CityList.module.css"; 
 
 const CityList = () => {
-    const {data, loading, error} = useFetch("/flights/countByCity?cities=Berlin,Madrid,London,Paris,Monaco")
+    const {data, loading, error} = useFetch(`${process.env.REACT_APP_API_URL}/flights/countByCity?cities=Berlin,Madrid,London,Paris,Monaco`)
 
     const images = [
         "https://media.istockphoto.com/id/503874284/photo/berlin-skyline-with-spree-river-at-sunset-germany.jpg?s=612x612&w=0&k=20&c=gnrw-SQQq9Niao93SU4djAgGXi-5LRBNkSRiwwX96Tk=",

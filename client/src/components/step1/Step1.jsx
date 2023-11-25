@@ -56,7 +56,7 @@ const Step1 = ({flightId, onNext }) => {
         try {
           await Promise.all(
             selectedTickets.map((flightId) => {
-              const res = axios.put(`/tickets/availability/${flightId}`, {
+              const res = axios.put(`${process.env.REACT_APP_API_URL}/tickets/availability/${flightId}`, {
                 dates: alldates,
               });
   
@@ -68,7 +68,7 @@ const Step1 = ({flightId, onNext }) => {
         } catch (err) {}
       };
 
-    const {data, loading, error} = useFetch(`/flights/tickets/${flightId}`)
+    const {data, loading, error} = useFetch(`${process.env.REACT_APP_API_URL}/flights/tickets/${flightId}`)
     return (
        
             <div className={styles.rContainer}>

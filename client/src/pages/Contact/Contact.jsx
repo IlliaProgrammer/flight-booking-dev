@@ -20,7 +20,7 @@ const Contact = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/email/contact', credentials, {
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/email/contact`, credentials, {
         withCredentials: true,
       });
       console.log(res.data); // You can handle the response data here
