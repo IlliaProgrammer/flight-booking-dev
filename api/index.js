@@ -38,6 +38,7 @@ app.use("/api/users", usersRoute)
 app.use("/api/flights", flightsRoute)
 app.use("/api/tickets", ticketsRoute)
 app.use("/api/email", mailRoute)
+app.use(cors())
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
