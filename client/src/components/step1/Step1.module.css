@@ -143,3 +143,16 @@
   .check{
     color: #5CD6C0;
   }
+
+
+  @media(max-width: 576px){
+    .rContainer{
+      overflow-x: scroll;
+    }
+
+
+    .rSelectTickets{
+      margin-left: -20px;
+    }
+}
+  
