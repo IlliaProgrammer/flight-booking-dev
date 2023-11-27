@@ -19,15 +19,11 @@ const Mail = () => {
         credentials,
         {
           withCredentials: true,
-          headers: {
-            'Content-Type': 'application/json',
-            
-          },
         }
       );
-      console.log(res.data); // You can handle the response data here
+      console.log(res.data);
     } catch (err) {
-      console.log(err.res);
+      console.log(err.response);
     }
   };
 
