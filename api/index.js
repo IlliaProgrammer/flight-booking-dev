@@ -13,8 +13,8 @@ const app = express()
 
 
 dotenv.config()
-app.use(cors())
-app.options("*", cors());
+
+
 
 const connect = async()=>{
     try {
@@ -34,12 +34,7 @@ mongoose.connection.on("disconnected", () => {
 });
 
 
-//middlewares
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-    next();
-});
+app.use(cors())
 app.use(cookieParser())
 app.use(express.json())
 app.use("/api/auth", authRoute)
