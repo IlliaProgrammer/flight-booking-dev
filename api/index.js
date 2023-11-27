@@ -34,7 +34,10 @@ mongoose.connection.on("disconnected", () => {
 });
 
 
-app.use(cors())
+app.use(cors({
+    origin: process.env.DONAIN, 
+    credentials: true,
+  }));
 app.use(cookieParser())
 app.use(express.json())
 app.use("/api/auth", authRoute)
