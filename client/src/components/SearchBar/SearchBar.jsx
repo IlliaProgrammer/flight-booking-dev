@@ -40,7 +40,9 @@ const SearchBar = () => {
       setOpenOptions(false);
     });
 
-    
+    const capitalizeFirstLetter = (string) => {
+      return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    };
 
     const navigate = useNavigate();
   
@@ -69,7 +71,7 @@ const SearchBar = () => {
               type="text"
               placeholder="Where are you going?"
               className={styles.headerSearchInput}
-              onChange={(e) => setDestination(e.target.value)}
+              onChange={(e) => setDestination(capitalizeFirstLetter(e.target.value))}
             />
           </div>
           <div  ref={dateNode} className={styles.headerSearchItem}>
