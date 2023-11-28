@@ -59,6 +59,8 @@ const SearchBar = () => {
     const { dispatch } = useContext(SearchContext);
   
     const handleSearch = () => {
+      console.log(destination)
+      console.log(date)
       dispatch({ type: "NEW_SEARCH", payload: { destination, date, options } });
       navigate("/flights", { state: { destination, date, options } });
     };
