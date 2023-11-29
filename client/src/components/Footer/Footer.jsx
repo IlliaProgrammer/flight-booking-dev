@@ -55,7 +55,7 @@ const Footer = () => {
             </a>
           </li>
         </ul>
-        <p>&copy;2023 SkyWings.Express | All Rights Reserved</p>
+        <p>&copy;2023 SkyWings.Express | Airlains of ukraine</p>
       </footer>
     );
   };

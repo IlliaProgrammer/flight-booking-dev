@@ -12,7 +12,7 @@ const Hero = () => {
                     Far far away, behind the word mountains, far from the countries
                     Vokalia and Consonantia, there live the blind texts.
                 </p>
-                <button className={styles.cta}>know more</button>
+                <button className={styles.cta}>buy plane tickets</button>
             </article>
 
             <figure className={styles.mainHeading__image}>

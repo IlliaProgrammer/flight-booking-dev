@@ -15,6 +15,7 @@ const AboutPage = () => {
             <div className={styles.top}>
                 <p className={styles.our}>our</p>
                 <p className={styles.values}>Values</p>
+                <h1 className={styles.values}>Travel abroad</h1>
             </div>
             <div className={styles.line}>
 
